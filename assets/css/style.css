@@ -4,6 +4,10 @@
     font-family: 'Karla', sans-serif;
 }
 
+body{
+    background-color: rgba(237,215,133,0.2);
+}
+
 .pace {
     display: none;
 }
