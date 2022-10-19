@@ -29,3 +29,5 @@ body{
 .priority-type{
     width: 7em;
 }
+
+.element::-webkit-scrollbar { width: 0 !important }::-webkit-scrollbar { width: 0 !important }

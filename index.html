@@ -43,7 +43,7 @@
 				<div class="col-lg col-md-6 col-sm-12 rounded p-0">
 					<div class="card" style="background-color: #E6EEC7;">
 						<div class="card-header rounded p-2" style="background-color: #C1CE8E;">
-							<h4 class="fs-4 m-0">To do (<span id="to-do-tasks-count">5</span>)</h4>
+							<h4 class="fs-4 m-0">To do (<span id="to-do-tasks-count">0</span>)</h4>
 
 						</div>
 						<div class="card-body p-2" id="to-do-tasks">
@@ -54,7 +54,7 @@
 				<div class="col-lg col-md-6 col-sm-12 rounded p-0">
 					<div class="card" style="background-color: #E7EADA;">
 						<div class="card-header rounded p-2" style="background-color: #DBE3B5;">
-							<h4 class="fs-4 m-0">In Progress (<span id="in-progress-tasks-count">4</span>)</h4>
+							<h4 class="fs-4 m-0">In Progress (<span id="in-progress-tasks-count">0</span>)</h4>
 
 						</div>
 						<div class="card-body p-2" id="in-progress-tasks">
@@ -65,7 +65,7 @@
 				<div class="col-lg col-md-6 col-sm-12 rounded p-0">
 					<div class="card" style="background-color: #E9ECE1;">
 						<div class="card-header rounded p-2" style="background-color: #DFE8CC;">
-							<h4 class="fs-4 m-0">Done (<span id="done-tasks-count">4</span>)</h4>
+							<h4 class="fs-4 m-0">Done (<span id="done-tasks-count">0</span>)</h4>
 
 						</div>
 						<div class="card-body p-2" id="done-tasks">
@@ -79,7 +79,7 @@
 		
 		
 		<!-- BEGIN scroll-top-btn -->
-		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<a href="javascript:;" class="btn btn-icon btn-circle bg-hex btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
 		<!-- END scroll-top-btn -->
 	</div>
 	<!-- END #app -->
@@ -115,21 +115,21 @@
 					</div>
 					<div class="">
 						<label for="priority" class="col-form-label">Priority:</label>
-						<select class="form-select" aria-label="Default select" style="background-color: #FAF7F0;">
+						<select id="task_priority" class="form-select" aria-label="Default select" style="background-color: #FAF7F0;">
 							<option selected>Please select</option>
-							<option value="1">Critical</option>
-							<option value="2">High</option>
-							<option value="3">Medium</option>
-							<option value="4">Low</option>
+							<option value="Critical">Critical</option>
+							<option value="High">High</option>
+							<option value="Medium">Medium</option>
+							<option value="Low">Low</option>
 						</select>
 					</div>
 					<div class="">
 						<label for="status" class="col-form-label">Status:</label>
-						<select class="form-select" aria-label="Default select" style="background-color: #FAF7F0;">
+						<select id="task_status" class="form-select" aria-label="Default select" style="background-color: #FAF7F0;">
 							<option selected>Please select</option>
-							<option value="1">To do</option>
-							<option value="2">In Progress</option>
-							<option value="3">Done</option>
+							<option value="To Do">To do</option>
+							<option value="In Progress">In Progress</option>
+							<option value="Done">Done</option>
 						</select>
 					</div>
 					<div class="">
@@ -138,7 +138,7 @@
 					</div>
 					<div class="">
 						<label for="Description" class="col-form-label">Description:</label>
-						<textarea class="form-control" aria-label="With textarea" style="background-color: #FAF7F0;"></textarea>
+						<textarea class="form-control" id="task-description" aria-label="With textarea" style="background-color: #FAF7F0;"></textarea>
 					  </div>
 				</div>
 				<div class="modal-footer" style="background-color: #E9ECE1;">
