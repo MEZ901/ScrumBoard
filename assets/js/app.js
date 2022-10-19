@@ -6,6 +6,7 @@ const done = document.getElementById("done-tasks");
 const modal = document.getElementById("modal-task");
 
 const taskTitle = document.getElementById("task-title");
+const taskType = document.getElementById("")
 const taskPriority = document.getElementById("task_priority");
 const taskStatus = document.getElementById("task_status");
 const taskDate = document.getElementById("task-date");
@@ -30,10 +31,12 @@ function display(){
 				<div class="">
 					<i class="bi bi-square fs-25px"></i>
 				</div>
-				<div class="edit-delete d-block">
-					<i class="bi bi-pencil-square fs-25px"></i>
-					<span class=""></span>
-					<i class="bi bi-trash3 fs-25px"></i>
+				<div class="edit-delete-container">
+					<div class="edit-delete d-flex flex-column justify-content-between">
+						<i class="bi bi-pencil-square"></i>
+						<span class=""></span>
+						<i class="bi bi-trash3"></i>
+					</div>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
 					<div>
@@ -58,10 +61,12 @@ function display(){
 				<div class="">
 					<i class="bi bi-clock-history fs-25px"></i>
 				</div>
-				<div class="edit-delete d-block">
-					<i class="bi bi-pencil-square fs-25px"></i>
-					<span class=""></span>
-					<i class="bi bi-trash3 fs-25px"></i>
+				<div class="edit-delete-container">
+					<div class="edit-delete d-flex flex-column justify-content-between">
+						<i class="bi bi-pencil-square"></i>
+						<span class=""></span>
+						<i class="bi bi-trash3"></i>
+					</div>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
 					<div>
@@ -86,10 +91,12 @@ function display(){
 				<div class="">
 				<i class="bi bi-check-lg fs-25px"></i>
 				</div>
-				<div class="edit-delete d-block">
-					<i class="bi bi-pencil-square fs-25px"></i>
-					<span class=""></span>
-					<i class="bi bi-trash3 fs-25px"></i>
+				<div class="edit-delete-container">
+					<div class="edit-delete d-flex flex-column justify-content-between">
+						<i class="bi bi-pencil-square"></i>
+						<span class=""></span>
+						<i class="bi bi-trash3"></i>
+					</div>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
 					<div>
@@ -122,6 +129,7 @@ function clearAllTasks(){
 }
 
 function addTask(){
+
 	tasks.push(
 		{
 			'id'            :   tasks.length+1,

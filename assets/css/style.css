@@ -35,19 +35,40 @@ body{
     position: relative;
 }
 
+.edit-delete-container{
+    display: none;
+}
+
 .edit-delete{
     background-color: #FAF7F0;
     position: absolute;
+    width: 35px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.edit-delete i{
+    font-size: 2em;
 }
 
 .edit-delete span{
     display: block;
     background: grey;
     height: 1px;
-    width: 85%;
-    margin: 10% auto;
+    width: 75%;
+    margin: auto;
     border-radius: 5px;
     content: '';
+}
+
+.task:hover{
+    transition: .3s;
+    transform: scale(1.02);
+}
+
+.task:hover .edit-delete-container{
+    display: block;
 }
 
 .element::-webkit-scrollbar { width: 0 !important }::-webkit-scrollbar { width: 0 !important }
