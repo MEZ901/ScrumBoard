@@ -30,4 +30,24 @@ body{
     width: 7em;
 }
 
+.task{
+    background-color: #FAF7F0;
+    position: relative;
+}
+
+.edit-delete{
+    background-color: #FAF7F0;
+    position: absolute;
+}
+
+.edit-delete span{
+    display: block;
+    background: grey;
+    height: 1px;
+    width: 85%;
+    margin: 10% auto;
+    border-radius: 5px;
+    content: '';
+}
+
 .element::-webkit-scrollbar { width: 0 !important }::-webkit-scrollbar { width: 0 !important }

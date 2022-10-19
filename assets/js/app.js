@@ -26,9 +26,14 @@ function display(){
 	for (let i = 0; i < tasks.length; i++) {
 		if (tasks[i].status == 'To Do') {
 			toDo.innerHTML += `
-				<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex" style="background-color: #FAF7F0;">
+				<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex">
 				<div class="">
 					<i class="bi bi-square fs-25px"></i>
+				</div>
+				<div class="edit-delete d-block">
+					<i class="bi bi-pencil-square fs-25px"></i>
+					<span class=""></span>
+					<i class="bi bi-trash3 fs-25px"></i>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
 					<div>
@@ -53,6 +58,11 @@ function display(){
 				<div class="">
 					<i class="bi bi-clock-history fs-25px"></i>
 				</div>
+				<div class="edit-delete d-block">
+					<i class="bi bi-pencil-square fs-25px"></i>
+					<span class=""></span>
+					<i class="bi bi-trash3 fs-25px"></i>
+				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
 					<div>
 						<div class="fw-bolder fs-5">${tasks[i].title}</div>
@@ -75,6 +85,11 @@ function display(){
 				<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex" style="background-color: #FAF7F0;">
 				<div class="">
 				<i class="bi bi-check-lg fs-25px"></i>
+				</div>
+				<div class="edit-delete d-block">
+					<i class="bi bi-pencil-square fs-25px"></i>
+					<span class=""></span>
+					<i class="bi bi-trash3 fs-25px"></i>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
 					<div>
