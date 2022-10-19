@@ -6,7 +6,8 @@ const done = document.getElementById("done-tasks");
 const modal = document.getElementById("modal-task");
 
 const taskTitle = document.getElementById("task-title");
-const taskType = document.getElementById("")
+const feature = document.getElementById("Feature");
+const bug = document.getElementById("Bug");
 const taskPriority = document.getElementById("task_priority");
 const taskStatus = document.getElementById("task_status");
 const taskDate = document.getElementById("task-date");
@@ -129,12 +130,21 @@ function clearAllTasks(){
 }
 
 function addTask(){
+	
+	var type;
 
+	if(feature.checked){
+    	type = feature.id;
+	}
+	else{
+		type = bug.id;
+	}
+	
 	tasks.push(
 		{
 			'id'            :   tasks.length+1,
 			'title'         :   taskTitle.value,
-			'type'          :   'Feature',
+			'type'          :   type,
 			'priority'      :   taskPriority.value,
 			'status'        :   taskStatus.value,
 			'date'          :   taskDate.value,
