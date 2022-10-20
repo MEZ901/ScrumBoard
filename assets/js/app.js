@@ -153,6 +153,14 @@ function addTask(){
 	);
 	clearAllTasks();
 	display();
+	resetForm();
 }
 
-
+function resetForm(){
+	taskTitle.value = "";
+	feature.checked;
+	taskPriority = "";
+	taskStatus = "";
+	taskDate = "";
+	taskDescription = "";
+}
