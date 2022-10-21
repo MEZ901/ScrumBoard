@@ -34,7 +34,7 @@
 				</div>
 				
 				<div class="">
-					<button  type="button" class="btn bg-hex text-white" data-bs-toggle="modal" data-bs-target="#modal-task"><i class="bi bi-plus-lg me-2"></i> Add Task</button>
+					<button  type="button" class="btn bg-hex text-white" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="redirectForAddNewTask()"><i class="bi bi-plus-lg me-2"></i> Add Task</button>
 				</div>
 			</div>
 			
@@ -86,7 +86,7 @@
 			<!-- Modal content goes here -->
 			<div class="modal-content">
 				<div class="modal-header bg-hex">
-					<h5 class="modal-title">Add Task</h5>
+					<h5 class="modal-title">Add task</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body " style="background-color: #E9ECE1;">
@@ -139,7 +139,7 @@
 				</div>
 				<div class="modal-footer" style="background-color: #E9ECE1;">
 					<button type="button" class="btn border-2 border border-hex" data-bs-dismiss="modal">Cancel</button>
-					<button type="submit" class="btn bg-hex" data-bs-dismiss="modal">Save</button>
+					<button id="saveButton" type="submit" class="btn bg-hex" data-bs-dismiss="modal">Save</button>
 				</div>
 			</div>
 		</div>
