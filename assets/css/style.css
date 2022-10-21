@@ -19,13 +19,14 @@ body{
     background-position: right bottom;
 }
 
-.description{
+.task-description{
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .priority-type{
     width: 7em;
 }
@@ -46,6 +47,7 @@ body{
     top: 0;
     left: 0;
     bottom: 0;
+    z-index: 999;
 }
 
 .edit-delete i{

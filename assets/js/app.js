@@ -1,8 +1,11 @@
-import { tasks } from "./data.js";
-
 const toDo = document.getElementById("to-do-tasks");
 const inProgress = document.getElementById("in-progress-tasks");
 const done = document.getElementById("done-tasks");
+
+var toDoCount = document.getElementById("to-do-tasks-count");
+var inProgressCount = document.getElementById("in-progress-tasks-count");
+var doneCount = document.getElementById("done-tasks-count");
+
 const modal = document.getElementById("modal-task");
 
 const taskTitle = document.getElementById("task-title");
@@ -13,16 +16,13 @@ const taskStatus = document.getElementById("task_status");
 const taskDate = document.getElementById("task-date");
 const taskDescription = document.getElementById("task-description");
 
-var toDoCount = document.getElementById("to-do-tasks-count");
-var inProgressCount = document.getElementById("in-progress-tasks-count");
-var doneCount = document.getElementById("done-tasks-count");
-
 display();
 
 modal.addEventListener('submit', (e) => {
     e.preventDefault();
 	addTask();
 });
+
 
 function display(){
 	for (let i = 0; i < tasks.length; i++) {
@@ -36,7 +36,7 @@ function display(){
 					<div class="edit-delete d-flex flex-column justify-content-between">
 						<i class="bi bi-pencil-square"></i>
 						<span class=""></span>
-						<i class="bi bi-trash3"></i>
+						<i id="trash" class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
@@ -44,7 +44,7 @@ function display(){
 						<div class="fw-bolder fs-5">${tasks[i].title}</div>
 						<div class="">
 							<div class="text-secondary ms-1">#${i+1} created in ${tasks[i].date}</div>
-							<div class="description ms-1" title="${tasks[i].description}">${tasks[i].description}</div>
+							<div class="task-description ms-1" title="${tasks[i].description}">${tasks[i].description}</div>
 						</div>
 					</div>
 					<div class="d-flex flex-column justify-content-center align-items-end ms-2 w-25">
@@ -66,7 +66,7 @@ function display(){
 					<div class="edit-delete d-flex flex-column justify-content-between">
 						<i class="bi bi-pencil-square"></i>
 						<span class=""></span>
-						<i class="bi bi-trash3"></i>
+						<i class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
@@ -74,7 +74,7 @@ function display(){
 						<div class="fw-bolder fs-5">${tasks[i].title}</div>
 						<div class="">
 							<div class="text-secondary ms-1">#${i+1} created in ${tasks[i].date}</div>
-							<div class="description ms-1" title="${tasks[i].description}">${tasks[i].description}</div>
+							<div class="task-description ms-1" title="${tasks[i].description}">${tasks[i].description}</div>
 						</div>
 					</div>
 					<div class="d-flex flex-column justify-content-center align-items-end ms-2 w-25">
@@ -96,7 +96,7 @@ function display(){
 					<div class="edit-delete d-flex flex-column justify-content-between">
 						<i class="bi bi-pencil-square"></i>
 						<span class=""></span>
-						<i class="bi bi-trash3"></i>
+						<i class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
 				</div>
 				<div class="text-start ms-2 d-flex w-100 justify-content-between">
@@ -104,7 +104,7 @@ function display(){
 						<div class="fw-bolder fs-5">${tasks[i].title}</div>
 						<div class="">
 							<div class="text-secondary ms-1">#${i+1} created in ${tasks[i].date}</div>
-							<div class="description ms-1" title="${tasks[i].description}">${tasks[i].description}</div>
+							<div class="task-description ms-1" title="${tasks[i].description}">${tasks[i].description}</div>
 						</div>
 					</div>
 					<div class="d-flex flex-column justify-content-center align-items-end ms-2 w-25">
@@ -132,7 +132,6 @@ function clearAllTasks(){
 function addTask(){
 	
 	var type;
-
 	if(feature.checked){
     	type = feature.id;
 	}
@@ -142,7 +141,6 @@ function addTask(){
 	
 	tasks.push(
 		{
-			'id'            :   tasks.length+1,
 			'title'         :   taskTitle.value,
 			'type'          :   type,
 			'priority'      :   taskPriority.value,
@@ -158,9 +156,15 @@ function addTask(){
 
 function resetForm(){
 	taskTitle.value = "";
-	feature.checked;
-	taskPriority = "";
-	taskStatus = "";
-	taskDate = "";
-	taskDescription = "";
+	feature.checked= true;
+	taskPriority.value = "";
+	taskStatus.value = "";
+	taskDate.value = "";
+	taskDescription.value = "";
+}
+
+function removeTask(index){
+	tasks.splice(index, 1);
+	clearAllTasks();
+	display();
 }
