@@ -12,6 +12,7 @@ let doneCount = document.getElementById("done-tasks-count");
 
 // Modal
 const modal = document.getElementById("modal-task");
+const modalTitle = document.getElementById("modal-title");
 const saveButton = document.getElementById("saveButton");
 const editButton = document.getElementById("editButton");
 
@@ -188,6 +189,7 @@ function editTask(index) {
 
 function initTaskForm(index) {
   taskTitle.value = tasks[index].title;
+
   if (feature.checked) {
     feature.checked = true;
     bug.checked = false;
@@ -224,12 +226,14 @@ function resetForm() {
 }
 
 function addButton() {
+  modalTitle.innerHTML = "Add task";
   resetForm();
   saveButton.style.display = "block";
   editButton.style.display = "none";
 }
 
 function updateButton() {
+  modalTitle.innerHTML = "Edit task";
   saveButton.style.display = "none";
   editButton.style.display = "block";
 }
