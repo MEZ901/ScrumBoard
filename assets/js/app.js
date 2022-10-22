@@ -1,3 +1,5 @@
+/*---------------------Variabls section---------------------*/
+
 // Status Sections
 const toDo = document.getElementById("to-do-tasks");
 const inProgress = document.getElementById("in-progress-tasks");
@@ -25,20 +27,9 @@ const taskDescription = document.getElementById("task-description");
 //save the index of the task for update
 let temp;
 
+/*---------------------------------------------------------------*/
+
 display();
-
-document.getElementById("add-task-button").addEventListener("click", (e) => {
-  e.preventDefault();
-  resetForm();
-  saveButton.style.display = "block";
-  editButton.style.display = "none";
-});
-
-document.getElementById("edit-task-button").addEventListener("click", (e) => {
-  e.preventDefault();
-  saveButton.style.display = "none";
-  editButton.style.display = "block";
-});
 
 saveButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -56,11 +47,11 @@ function display() {
       toDo.innerHTML += `
 				<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex">
 				<div class="">
-					<i class="bi bi-square fs-25px"></i>
+					<i class="bi bi-question-square fs-25px"></i>
 				</div>
 				<div class="edit-delete-container">
 					<div class="edit-delete d-flex flex-column justify-content-between">
-					<i id="edit-task-button" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i})"></i>
+					<i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i}); updateButton()"></i>
 						<span class=""></span>
 						<i id="trash" class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
@@ -85,11 +76,11 @@ function display() {
       inProgress.innerHTML += `
 				<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex" style="background-color: #FAF7F0;">
 				<div class="">
-					<i class="bi bi-clock-history fs-25px"></i>
+					<i class="bi bi-hourglass-split fs-25px"></i>
 				</div>
 				<div class="edit-delete-container">
 					<div class="edit-delete d-flex flex-column justify-content-between">
-					<i id="edit-task-button" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i})"></i>
+					<i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i}); updateButton()"></i>
 						<span class=""></span>
 						<i class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
@@ -114,11 +105,11 @@ function display() {
       done.innerHTML += `
 				<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex" style="background-color: #FAF7F0;">
 				<div class="">
-				<i class="bi bi-check-lg fs-25px"></i>
+				<i class="bi bi-check-square fs-25px"></i>
 				</div>
 				<div class="edit-delete-container">
 					<div class="edit-delete d-flex flex-column justify-content-between">
-					<i id="edit-task-button" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i})"></i>
+					<i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i}); updateButton()"></i>
 						<span class=""></span>
 						<i class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
@@ -230,4 +221,15 @@ function resetForm() {
   taskStatus.value = "Please select";
   taskDate.value = "";
   taskDescription.value = "";
+}
+
+function addButton() {
+  resetForm();
+  saveButton.style.display = "block";
+  editButton.style.display = "none";
+}
+
+function updateButton() {
+  saveButton.style.display = "none";
+  editButton.style.display = "block";
 }
