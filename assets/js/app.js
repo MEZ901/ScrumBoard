@@ -1,16 +1,17 @@
-// Status Section 
+// Status Sections
 const toDo = document.getElementById("to-do-tasks");
 const inProgress = document.getElementById("in-progress-tasks");
 const done = document.getElementById("done-tasks");
 
 // Tasks count
-var toDoCount = document.getElementById("to-do-tasks-count");
-var inProgressCount = document.getElementById("in-progress-tasks-count");
-var doneCount = document.getElementById("done-tasks-count");
+let toDoCount = document.getElementById("to-do-tasks-count");
+let inProgressCount = document.getElementById("in-progress-tasks-count");
+let doneCount = document.getElementById("done-tasks-count");
 
 // Modal
 const modal = document.getElementById("modal-task");
 const saveButton = document.getElementById("saveButton");
+const editButton = document.getElementById("editButton");
 
 // Task's Property
 const taskTitle = document.getElementById("task-title");
@@ -21,24 +22,33 @@ const taskStatus = document.getElementById("task_status");
 const taskDate = document.getElementById("task-date");
 const taskDescription = document.getElementById("task-description");
 
+//save the index of the task for update
+let temp;
+
 display();
 
-function redirectForAddNewTask() {
+document.getElementById("add-task-button").addEventListener("click", (e) => {
+  e.preventDefault();
+  resetForm();
+  saveButton.style.display = "block";
+  editButton.style.display = "none";
+});
 
-  saveButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    addTask();
-  });
-}
+document.getElementById("edit-task-button").addEventListener("click", (e) => {
+  e.preventDefault();
+  saveButton.style.display = "none";
+  editButton.style.display = "block";
+});
 
-function redirectForUpdateTask(index) {
+saveButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  addTask();
+});
 
-	initTaskForm(index);
-  saveButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    editTask(index);
-  });
-}
+editButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  editTask(temp);
+});
 
 function display() {
   for (let i = 0; i < tasks.length; i++) {
@@ -50,7 +60,7 @@ function display() {
 				</div>
 				<div class="edit-delete-container">
 					<div class="edit-delete d-flex flex-column justify-content-between">
-					<i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="redirectForUpdateTask(${i})"></i>
+					<i id="edit-task-button" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i})"></i>
 						<span class=""></span>
 						<i id="trash" class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
@@ -79,7 +89,7 @@ function display() {
 				</div>
 				<div class="edit-delete-container">
 					<div class="edit-delete d-flex flex-column justify-content-between">
-					<i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="redirectForUpdateTask(${i})"></i>
+					<i id="edit-task-button" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i})"></i>
 						<span class=""></span>
 						<i class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
@@ -108,7 +118,7 @@ function display() {
 				</div>
 				<div class="edit-delete-container">
 					<div class="edit-delete d-flex flex-column justify-content-between">
-					<i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="redirectForUpdateTask(${i})"></i>
+					<i id="edit-task-button" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="initTaskForm(${i})"></i>
 						<span class=""></span>
 						<i class="bi bi-trash3" onclick="removeTask(${i})"></i>
 					</div>
@@ -134,7 +144,7 @@ function display() {
 }
 
 function addTask() {
-  var type;
+  let type;
   if (feature.checked) {
     type = feature.id;
   } else {
@@ -155,49 +165,14 @@ function addTask() {
   resetForm();
 }
 
-function clearAllTasks() {
-  let deleteTasks = document.querySelectorAll(".task");
-  for (let t of deleteTasks) {
-    t.remove();
-    toDoCount.innerHTML = 0;
-    inProgressCount.innerHTML = 0;
-    doneCount.innerHTML = 0;
-  }
-}
-
-function resetForm() {
-  taskTitle.value = "";
-  feature.checked = true;
-  taskPriority.value = "Please select";
-  taskStatus.value = "Please select";
-  taskDate.value = "";
-  taskDescription.value = "";
-}
-
 function removeTask(index) {
   tasks.splice(index, 1);
   clearAllTasks();
   display();
 }
 
-function initTaskForm(index) {
-  taskTitle.value = tasks[index].title;
-  if (feature.checked) {
-    feature.checked = true;
-    bug.checked = false;
-  } else {
-    feature.checked = false;
-    bug.checked = true;
-  }
-
-  taskPriority.value = tasks[index].priority;
-  taskStatus.value = tasks[index].status;
-  taskDate.value = tasks[index].date;
-  taskDescription.value = tasks[index].description;
-}
-
 function editTask(index) {
-  var type;
+  let type;
   if (feature.checked) {
     type = feature.id;
   } else {
@@ -218,5 +193,41 @@ function editTask(index) {
 
   clearAllTasks();
   display();
-  resetForm();
+}
+
+function initTaskForm(index) {
+  taskTitle.value = tasks[index].title;
+  if (feature.checked) {
+    feature.checked = true;
+    bug.checked = false;
+  } else {
+    feature.checked = false;
+    bug.checked = true;
+  }
+
+  taskPriority.value = tasks[index].priority;
+  taskStatus.value = tasks[index].status;
+  taskDate.value = tasks[index].date;
+  taskDescription.value = tasks[index].description;
+
+  temp = index;
+}
+
+function clearAllTasks() {
+  let deleteTasks = document.querySelectorAll(".task");
+  for (let t of deleteTasks) {
+    t.remove();
+    toDoCount.innerHTML = 0;
+    inProgressCount.innerHTML = 0;
+    doneCount.innerHTML = 0;
+  }
+}
+
+function resetForm() {
+  taskTitle.value = "";
+  feature.checked = true;
+  taskPriority.value = "Please select";
+  taskStatus.value = "Please select";
+  taskDate.value = "";
+  taskDescription.value = "";
 }

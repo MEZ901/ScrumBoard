@@ -1,76 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 
 * {
-    font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
-body{
-    background-color: rgba(237,215,133,0.2);
+body {
+  background-color: rgba(237, 215, 133, 0.2);
 }
 
 .pace {
-    display: none;
+  display: none;
 }
 
 .main-style {
-    min-height: 100vh;
-    background: url(../img/cover/cover-scrum-board.png) no-repeat fixed;
-    background-size: 360px;
-    background-position: right bottom;
+  min-height: 100vh;
+  background: url(../img/cover/cover-scrum-board.png) no-repeat fixed;
+  background-size: 360px;
+  background-position: right bottom;
 }
 
-.task-description{
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.task-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.priority-type{
-    width: 7em;
+.priority-type {
+  width: 7em;
 }
 
-.task{
-    background-color: #FAF7F0;
-    position: relative;
+.task {
+  background-color: #faf7f0;
+  position: relative;
 }
 
-.edit-delete-container{
-    display: none;
+.edit-delete-container {
+  display: none;
 }
 
-.edit-delete{
-    background-color: #FAF7F0;
-    position: absolute;
-    width: 35px;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 999;
+.edit-delete {
+  background-color: #faf7f0;
+  position: absolute;
+  width: 35px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
 }
 
-.edit-delete i{
-    font-size: 2em;
+.edit-delete i {
+  font-size: 2em;
 }
 
-.edit-delete span{
-    display: block;
-    background: grey;
-    height: 1px;
-    width: 75%;
-    margin: auto;
-    border-radius: 5px;
-    content: '';
+.edit-delete span {
+  display: block;
+  background: grey;
+  height: 1px;
+  width: 75%;
+  margin: auto;
+  border-radius: 5px;
+  content: "";
 }
 
-.task:hover{
-    transition: .3s;
-    transform: scale(1.02);
+.task:hover {
+  transition: 0.3s;
+  transform: scale(1.02);
 }
 
-.task:hover .edit-delete-container{
-    display: block;
+.task:hover .edit-delete-container {
+  display: block;
 }
 
-.element::-webkit-scrollbar { width: 0 !important }::-webkit-scrollbar { width: 0 !important }
+.element::-webkit-scrollbar {
+  width: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 0 !important;
+}
