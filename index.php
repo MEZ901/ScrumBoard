@@ -180,6 +180,7 @@
                 <div class="ms-3 form-check">
                   <input
                     name="task-type"
+                    value="1"
                     class="form-check-input"
                     type="radio"
                     name="flexRadioDefault"
@@ -191,6 +192,7 @@
                 <div class="ms-3 form-check">
                   <input
                     name="task-type"
+                    value="2"
                     class="form-check-input"
                     type="radio"
                     name="flexRadioDefault"
@@ -209,10 +211,10 @@
                   style="background-color: #faf7f0"
                 >
                   <option selected>Please select</option>
-                  <option value="Critical">Critical</option>
-                  <option value="High">High</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Low">Low</option>
+                  <option value="1">Low</option>
+                  <option value="2">Medium</option>
+                  <option value="3">High</option>
+                  <option value="4">Critical</option>
                 </select>
               </div>
               <div class="">
@@ -225,9 +227,9 @@
                   style="background-color: #faf7f0"
                 >
                   <option selected>Please select</option>
-                  <option value="To Do">To do</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Done">Done</option>
+                  <option value="1">To do</option>
+                  <option value="2">In Progress</option>
+                  <option value="3">Done</option>
                 </select>
               </div>
               <div class="">
@@ -255,6 +257,7 @@
             </div>
             <div class="modal-footer" style="background-color: #e9ece1">
               <button
+                name="cancel"
                 type="button"
                 class="btn border-2 border border-hex"
                 data-bs-dismiss="modal"
@@ -262,6 +265,7 @@
                 Cancel
               </button>
               <button
+                name="save"
                 id="saveButton"
                 type="submit"
                 class="btn bg-hex"
@@ -270,6 +274,7 @@
                 Save
               </button>
               <button
+                name="update "
                 id="editButton"
                 type="submit"
                 class="btn bg-hex"
