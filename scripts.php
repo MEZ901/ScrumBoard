@@ -38,26 +38,26 @@
                 echo(
                     '<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex">
                     <div class="">
-                        <i class="bi bi-question-square fs-25px"></i>
+                        <i id="'.$id.'status" data="'.$row['status_id'].'" class="bi bi-question-square fs-25px"></i>
                     </div>
                     <div class="edit-delete-container">
                         <div class="edit-delete d-flex flex-column justify-content-between">
-                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton()"></i>
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton('.$id.')"></i>
                             <span class=""></span>
                             <a href="scripts.php?id='.$id.'"><i id="trash" class="bi bi-trash3 link-dark"></i></a>
                         </div>
                     </div>
                     <div class="text-start ms-2 d-flex w-100 justify-content-between">
                         <div>
-                            <div class="fw-bolder fs-5">'.$title.'</div>
+                            <div id="'.$id.'title" data="'.$title.'" class="fw-bolder fs-5">'.$title.'</div>
                             <div class="">
-                                <div class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
-                                <div class="task-description ms-1" title="'.$description.'">'.$description.'</div>
+                                <div id="'.$id.'date" data="'.$date.'" class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
+                                <div id="'.$id.'description" data="'.$description.'" class="task-description ms-1" title="'.$description.'">'.$description.'</div>
                             </div>
                         </div>
                         <div class="d-flex flex-column justify-content-center align-items-end ms-2 w-25">
-                            <span class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
-                            <span class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
+                            <span id="'.$id.'priority" data="'.$row['priority_id'].'" class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
+                            <span id="'.$id.'type" data="'.$row['type_id'].'" class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
                         </div>
                     </div>
                     </button>'
@@ -66,26 +66,26 @@
                 echo(
                     '<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex">
                     <div class="">
-                        <i class="bi bi-hourglass-split fs-25px"></i>
+                        <i id="'.$id.'status" data="'.$row['status_id'].'" class="bi bi-hourglass-split fs-25px"></i>
                     </div>
                     <div class="edit-delete-container">
                         <div class="edit-delete d-flex flex-column justify-content-between">
-                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton()"></i>
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton('.$id.')"></i>
                             <span class=""></span>
                             <a href="scripts.php?id='.$id.'"><i id="trash" class="bi bi-trash3 link-dark"></i></a>
                         </div>
                     </div>
                     <div class="text-start ms-2 d-flex w-100 justify-content-between">
                         <div>
-                            <div class="fw-bolder fs-5">'.$title.'</div>
+                            <div id="'.$id.'title" data="'.$title.'" class="fw-bolder fs-5">'.$title.'</div>
                             <div class="">
-                                <div class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
-                                <div class="task-description ms-1" title="'.$description.'">'.$description.'</div>
+                                <div id="'.$id.'date" data="'.$date.'" class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
+                                <div id="'.$id.'description" data="'.$description.'" class="task-description ms-1" title="'.$description.'">'.$description.'</div>
                             </div>
                         </div>
                         <div class="d-flex flex-column justify-content-center align-items-end ms-2 w-25">
-                            <span class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
-                            <span class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
+                            <span id="'.$id.'priority" data="'.$row['priority_id'].'" class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
+                            <span id="'.$id.'type" data="'.$row['type_id'].'" class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
                         </div>
                     </div>
                     </button>'
@@ -94,26 +94,26 @@
                 echo(
                     '<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex">
                     <div class="">
-                        <i class="bi bi-check-square fs-25px"></i>
+                        <i id="'.$id.'status" data="'.$row['status_id'].'" class="bi bi-check-square fs-25px"></i>
                     </div>
                     <div class="edit-delete-container">
                         <div class="edit-delete d-flex flex-column justify-content-between">
-                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton()"></i>
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton('.$id.')"></i>
                             <span class=""></span>
                             <a href="scripts.php?id='.$id.'"><i id="trash" class="bi bi-trash3 link-dark"></i></a>
                         </div>
                     </div>
                     <div class="text-start ms-2 d-flex w-100 justify-content-between">
                         <div>
-                            <div class="fw-bolder fs-5">'.$title.'</div>
+                            <div id="'.$id.'title" data="'.$title.'" class="fw-bolder fs-5">'.$title.'</div>
                             <div class="">
-                                <div class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
-                                <div class="task-description ms-1" title="'.$description.'">'.$description.'</div>
+                                <div id="'.$id.'date" data="'.$date.'" class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
+                                <div id="'.$id.'description" data="'.$description.'" class="task-description ms-1" title="'.$description.'">'.$description.'</div>
                             </div>
                         </div>
                         <div class="d-flex flex-column justify-content-center align-items-end ms-2 w-25">
-                            <span class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
-                            <span class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
+                            <span id="'.$id.'priority" data="'.$row['priority_id'].'" class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
+                            <span id="'.$id.'type" data="'.$row['type_id'].'" class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
                         </div>
                     </div>
                     </button>'
@@ -133,7 +133,7 @@
         $date = $_POST["task-date"];
         $description = $_POST["task-description"];
 
-        $sql = "insert into tasks (title, type_id, priority_id, status_id, task_datetime, description) values ('$title', '$type', '$priority', '$status', '$date', '$description')";
+        $sql = "INSERT into tasks (title, type_id, priority_id, status_id, task_datetime, description) values ('$title', '$type', '$priority', '$status', '$date', '$description')";
         $conn->query($sql);
         $conn->close();
 
@@ -144,6 +144,18 @@
     function updateTask()
     {
         global $conn;
+
+        $id = $_POST["task-id"];
+        $title = $_POST["task-title"];
+        $type = $_POST["task-type"];
+        $priority = $_POST["task-priority"];
+        $status = $_POST["task-status"];
+        $date = $_POST["task-date"];
+        $description = $_POST["task-description"];
+
+        $sql = "UPDATE tasks set title='$title', type_id='$priority', status_id='$status', task_datetime='$date', description='$description' where id='$id'";
+        $result= $conn->query($sql);
+        $conn->close();
 
         $_SESSION['message'] = "Task has been updated successfully !";
 		header('location: index.php');

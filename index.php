@@ -105,7 +105,8 @@
     </div>
     <!-- END #app -->
 
-    <!-- TASK MODAL -->
+    <!-- ################################ TASK MODAL ################################ -->
+
     <div class="modal fade" id="modal-task" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <!-- Modal content goes here -->
@@ -117,7 +118,7 @@
             </div>
             <div class="modal-body" style="background-color: #e9ece1">
               <!-- This Input Allows Storing Task Index  -->
-							<input type="hidden" id="task-id">
+							<input name="task-id" value="" type="hidden" id="task-id">
               <div class="">
                 <label for="task-title" class="col-form-label">Title:</label>
                 <input name="task-title" type="text" class="form-control" id="task-title" style="background-color: #faf7f0"/>
@@ -145,8 +146,7 @@
               </div>
               <div class="">
                 <label for="status" class="col-form-label">Status:</label>
-                <select
-                  name="task-status" id="task_status" class="form-select" aria-label="Default select" style="background-color: #faf7f0">
+                <select name="task-status" id="task_status" class="form-select" aria-label="Default select" style="background-color: #faf7f0">
                   <option selected>Please select</option>
                   <option value="1">To do</option>
                   <option value="2">In Progress</option>
@@ -171,6 +171,8 @@
         </div>
       </div>
     </div>
+
+    <!-- ############################################################################## -->
 
     <!-- ================== BEGIN core-js ================== -->
     <script src="assets/js/vendor.min.js"></script>

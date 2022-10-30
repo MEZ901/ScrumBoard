@@ -2,41 +2,35 @@ const modalTitle = document.getElementById("modal-title");
 const saveButton = document.getElementById("saveButton");
 const editButton = document.getElementById("editButton");
 
-const taskTitle = document.getElementById("task-title");
-const feature = document.getElementById("Feature");
-const bug = document.getElementById("Bug");
-const taskPriority = document.getElementById("task_priority");
-const taskStatus = document.getElementById("task_status");
-const taskDate = document.getElementById("task-date");
-const taskDescription = document.getElementById("task-description");
-
 function addButton(){
     modalTitle.innerHTML = "Add task";
     saveButton.style.display = "block";
     editButton.style.display = "none";
+
+    document.getElementById("form-task").reset();
 }
 
-function updateButton(){
+function updateButton(id){
     modalTitle.innerHTML = "Edit task";
     saveButton.style.display = "none";
     editButton.style.display = "block";
-}
 
-function initTaskForm(index) {
-  taskTitle.value = tasks[index].title;
-
-  if (feature.checked) {
-    feature.checked = true;
-    bug.checked = false;
-  } else {
-    feature.checked = false;
-    bug.checked = true;
-  }
-
-  taskPriority.value = tasks[index].priority;
-  taskStatus.value = tasks[index].status;
-  taskDate.value = tasks[index].date;
-  taskDescription.value = tasks[index].description;
-
-  temp = index;
+    document.getElementById("task-id").value=id;
+    let title = document.getElementById(id+"title").getAttribute("data");
+    let type = document.getElementById(id+"type").getAttribute("data");
+    let priority = document.getElementById(id+"priority").getAttribute("data");
+    let status = document.getElementById(id+"status").getAttribute("data");
+    let date = document.getElementById(id+"date").getAttribute("data");
+    let description = document.getElementById(id+"description").getAttribute("data");
+    
+    document.getElementById("task-title").value = title;
+    document.getElementById("task_priority").value = priority;
+    document.getElementById("task_status").value = status;
+    document.getElementById("task-date").value = date;
+    document.getElementById("task-description").value = description;
+    if(type == 1){
+        document.getElementById("Feature").checked = true;
+    }else{
+        document.getElementById("Bug").checked = true;
+    }
 }
