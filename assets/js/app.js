@@ -28,9 +28,6 @@ function updateButton(id){
     document.getElementById("task_status").value = status;
     document.getElementById("task-date").value = date;
     document.getElementById("task-description").value = description;
-    if(type == 1){
-        document.getElementById("Feature").checked = true;
-    }else{
-        document.getElementById("Bug").checked = true;
-    }
+    if(type == 1) document.getElementById("Feature").checked = true;
+    else document.getElementById("Bug").checked = true;
 }
