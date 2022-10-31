@@ -13,14 +13,7 @@
     {
         global $conn;
 
-        $sql = "select tasks.*, types.name as type, statuses.name as status, priorities.name as priority
-        from tasks
-        inner join types
-        on tasks.type_id=types.id
-        inner join priorities
-        on tasks.priority_id=priorities.id
-        inner join statuses
-        on tasks.status_id=statuses.id";
+        $sql = "select tasks.*, types.name as type, statuses.name as status, priorities.name as priority from tasks inner join types on tasks.type_id=types.id inner join priorities on tasks.priority_id=priorities.id inner join statuses on tasks.status_id=statuses.id";
         
         $result = $conn->query($sql);
 
@@ -62,6 +55,7 @@
                     </div>
                     </button>'
                 );
+                echo('<script>document.getElementById("to-do-tasks-count").innerHTML++</script>');
             } else if($status == 'in progress' && $st == 2){
                 echo(
                     '<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex">
@@ -90,6 +84,7 @@
                     </div>
                     </button>'
                 );
+                echo('<script>document.getElementById("in-progress-tasks-count").innerHTML++</script>');
             } else if($status == 'done' && $st == 3){
                 echo(
                     '<button class="task border-0 rounded mb-3 p-2 shadow-sm w-100 d-flex">
@@ -118,7 +113,8 @@
                     </div>
                     </button>'
                 );
-            }   
+                echo('<script>document.getElementById("done-tasks-count").innerHTML++</script>');
+            }
         } 
     } 
 
