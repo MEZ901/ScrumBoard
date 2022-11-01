@@ -27,9 +27,9 @@
             $date = $row['task_datetime'];
             $description = $row['description'];
 
-            if($status == 'to do') $icon = '<i id="'.$id.'status" data="'.$row["status_id"].'" class="bi bi-question-square fs-25px"></i>';
-            else if($status == 'in progress') $icon = '<i id="'.$id.'status" data="'.$row["status_id"].'" class="bi bi-hourglass-split fs-25px"></i>';
-            else if($status == 'done') $icon = '<i id="'.$id.'status" data="'.$row["status_id"].'" class="bi bi-check-square fs-25px"></i>';
+            if($status == 'to do') $icon = '<i class="bi bi-question-square fs-25px"></i>';
+            else if($status == 'in progress') $icon = '<i class="bi bi-hourglass-split fs-25px"></i>';
+            else if($status == 'done') $icon = '<i class="bi bi-check-square fs-25px"></i>';
 
             if($status == 'to do' && $st == 1 || $status == 'in progress' && $st == 2 || $status == 'done' && $st == 3){
                 echo(
@@ -39,22 +39,22 @@
                     </div>
                     <div class="edit-delete-container">
                         <div class="edit-delete d-flex flex-column justify-content-between">
-                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton('.$id.')"></i>
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modal-task" onclick="updateButton('.$id.', `'.$title.'`, '.$row["type_id"].', '.$row["priority_id"].', '.$row["status_id"].', `'.$date.'`, `'.$description.'`)"></i>
                             <span class=""></span>
                             <a href="scripts.php?id='.$id.'"><i id="trash" class="bi bi-trash3 link-dark"></i></a>
                         </div>
                     </div>
                     <div class="text-start ms-2 d-flex w-100 justify-content-between">
                         <div>
-                            <div id="'.$id.'title" data="'.$title.'" class="fw-bolder fs-5">'.$title.'</div>
+                            <div class="fw-bolder fs-5">'.$title.'</div>
                             <div class="">
-                                <div id="'.$id.'date" data="'.$date.'" class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
-                                <div id="'.$id.'description" data="'.$description.'" class="task-description ms-1" title="'.$description.'">'.$description.'</div>
+                                <div class="text-secondary ms-1">#'.$id.' created in'.$date.'</div>
+                                <div class="task-description ms-1" title="'.$description.'">'.$description.'</div>
                             </div>
                         </div>
                         <div class="d-flex flex-column justify-content-center align-items-end ms-2 w-25">
-                            <span id="'.$id.'priority" data="'.$row["priority_id"].'" class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
-                            <span id="'.$id.'type" data="'.$row["type_id"].'" class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
+                            <span class="priority-type bg-hex text-white p-1 mb-2 rounded-3 text-center">'.$priority.'</span>
+                            <span class="priority-type border-2 border border-hex p-1 rounded-3  text-center">'.$type.'</span>
                         </div>
                     </div>
                     </button>'
@@ -111,7 +111,7 @@
     {
         global $conn;
 
-        $id = $_GET[ 'id'];
+        $id = $_GET['id'];
         $sql = "delete from tasks where id=$id";
         $conn->query($sql);
         $conn->close();

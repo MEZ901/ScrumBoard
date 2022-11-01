@@ -10,19 +10,12 @@ function addButton(){
     document.getElementById("form-task").reset();
 }
 
-function updateButton(id){
+function updateButton(id, title, type, priority, status, date, description){
     modalTitle.innerHTML = "Edit task";
     saveButton.style.display = "none";
     editButton.style.display = "block";
 
     document.getElementById("task-id").value=id;
-    let title = document.getElementById(id+"title").getAttribute("data");
-    let type = document.getElementById(id+"type").getAttribute("data");
-    let priority = document.getElementById(id+"priority").getAttribute("data");
-    let status = document.getElementById(id+"status").getAttribute("data");
-    let date = document.getElementById(id+"date").getAttribute("data");
-    let description = document.getElementById(id+"description").getAttribute("data");
-    
     document.getElementById("task-title").value = title;
     document.getElementById("task_priority").value = priority;
     document.getElementById("task_status").value = status;
